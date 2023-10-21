@@ -2,7 +2,7 @@ package com.will.dubbodemo.order.service.impl;
 
 import com.will.dubbodemo.bean.UserAddress;
 import com.will.dubbodemo.service.UserService;
-import org.apache.zookeeper.common.StringUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -20,9 +20,9 @@ public class UserServiceStub implements UserService {
     @Override
     public List<UserAddress> getUserAddressList(String userId) {
         System.out.println("UserServiceStub");
-        if (StringUtils.isBlank(userId)) {
-            return null;
+        if (StringUtils.hasText(userId)) {
+            return userService.getUserAddressList(userId);
         }
-        return userService.getUserAddressList(userId);
+        return null;
     }
 }
