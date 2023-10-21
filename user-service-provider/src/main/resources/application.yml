@@ -1,0 +1,20 @@
+dubbo:
+  application:
+    name: dubbo-springboot-demo-provider
+    qos-port: 22223
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    # 192.168.40.128:2181,192.168.40.128:2182,192.168.40.128:2183
+#    address: zookeeper://192.168.40.128:2181,192.168.40.128:2182,192.168.40.128:2183
+    address: nacos://127.0.0.1:8848
+    protocol: nacos
+  monitor:
+    protocol: registry
+spring:
+  application:
+    name: dubbo-springboot-demo-provider
+
+server:
+  port: 8081
